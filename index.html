@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ご予約ページ</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1650230939558200');
+  fbq('track', 'PageView');
+  </script>
+  <noscript>
+  <img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1650230939558200&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+      background-color: #373f5c;
+      color: #e4d7c5;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    .fv {
+      width: 100%;
+      border-radius: 16px;
+      margin-bottom: 32px;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 32px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      margin-bottom: 16px;
+      background-color: #e4d7c5;
+      color: #373f5c;
+      text-decoration: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      transition: opacity 0.2s ease;
+    }
+
+    .btn:hover {
+      opacity: 0.85;
+    }
+
+    .note {
+      margin-top: 24px;
+      font-size: 12px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- FV画像（ここを差し替え） -->
+    <img src="fv.png" alt="Restaurant" class="fv">
+
+    <h1>ご予約ページ</h1>
+
+    <!-- 食べログ予約 -->
+    <a href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=23089838&utm_source=ig&utm_medium=social&utm_content=link_in_bio"
+       target="_blank"
+       class="btn"
+       onclick="fbq('track', 'Reserve_Tabelog');">
+      食べログで予約する
+    </a>
+
+    <!-- トレタ予約 -->
+    <a href="https://yoyaku.toreta.in/portrait/#/"
+       target="_blank"
+       class="btn"
+       onclick="fbq('track', 'Reserve_Toreta');">
+      トレタで予約する
+    </a>
+
+    <div class="note">
+      ボタンを押すと予約サイトへ移動します
+    </div>
+
+  </div>
+
+</body>
+</html>
