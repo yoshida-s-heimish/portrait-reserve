@@ -38,7 +38,8 @@
       height: auto;
       display: block;
       margin: 0 auto;
-      objec
+      object-fit: cover;
+    }
 
     /* ロゴ中央配置 */
     .logo-overlay {
@@ -139,6 +140,17 @@
 
     /* スマホ微調整 */
     @media (max-width: 480px) {
+      .wrapper {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
       h1 {
         font-size: 20px;
       }
@@ -153,6 +165,25 @@
       }
     }
   </style>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1650230939558200');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1650230939558200&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
 </head>
 
 <body>
@@ -174,18 +205,21 @@
     </div>
 
     <a class="btn"
+      onclick="fbq('track','Reserve_Tabelog');"
       href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=23089838&utm_source=ig&utm_medium=social&utm_content=link_in_bio"
       target="_blank">
       食べログで予約する
     </a>
 
     <a class="btn secondary"
+      onclick="fbq('track','Reserve_Toreta');"
       href="https://yoyaku.toreta.in/portrait/#/"
       target="_blank">
       トレタで予約する
     </a>
 
     <a class="btn secondary"
+      onclick="fbq('track','Call_Click');"
       href="tel:0522536762">
       電話で予約する（052-253-6762）
     </a>
