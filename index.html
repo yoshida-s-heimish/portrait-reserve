@@ -26,46 +26,33 @@
       box-sizing: border-box;
     }
 
-    /* FVを画面横100%にする */
-.hero {
-  position: relative;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  overflow: hidden;
-  margin-bottom: 15px;
-  
-  /* 【追加】PCの時だけ高さを画面一杯にする */
-  height: auto; 
-}
+    /* FVを画面横100%にする（PCでもスマホでも） */
+    .hero {
+      position: relative;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
 
-@media (min-width: 768px) {
-  .hero {
-    height: 100vh; /* PCで高さを100%に固定 */
-  }
-}
+    .hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+    }
 
-.hero img {
-  width: 100%;
-  height: 100%;    /* 【変更】autoから100%に変更 */
-  display: block;
-  object-fit: cover; /* これで画像が歪まずに枠を埋めます */
-}
-
-/* ロゴ中央配置 */
-.logo-overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-  /* 画面横幅の10%にする */
-  width: 10vw !important; 
-  
-  /* PCで10vwだと小さすぎる場合があるため、最大値は維持 */
-  max-width: 500px;
-  opacity: 0.95;
-  z-index: 2; /* 画像より確実に前面に出す */
-}
+    /* ロゴ中央配置 */
+    .logo-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 10vw;
+      max-width: 300px;
+      opacity: 0.95;
+    }
 
     h1 {
       font-size: 22px;
