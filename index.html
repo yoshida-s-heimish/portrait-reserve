@@ -1,195 +1,204 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservation</title>
 
-<title>Reservation | Portrait Nagoya</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Hiragino Sans", "ヒラギノ角ゴシック", -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #373f5c;
+      color: white;
+    }
 
-<!-- Meta Pixel（そのまま差し替え） -->
-<script>
-  // ここにMeta Pixelコード入れる
-</script>
+    /* コンテンツ幅 */
+    .wrapper {
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 32px 20px 48px;
+      box-sizing: border-box;
+    }
 
-<style>
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-  background: #3c4361;
-  color: #e6dccb;
-  letter-spacing: 0.05em;
-}
+    /* FVを画面横100%にする（PCでもスマホでも） */
+    .hero {
+      position: relative;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
 
-/* 全体ラッパー */
-.wrapper {
-  max-width: 560px;
-  margin: 0 auto;
-}
+    .hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
-/* FV */
-.hero {
-  position: relative;
-  width: 100%;
-  height: 72vh;
-  min-height: 520px;
-  overflow: hidden;
-}
+    /* ロゴ中央配置 */
+    .logo-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%;
+      max-width: 260px;
+      opacity: 0.95;
+    }
 
-.hero img.bg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(0.85);
-}
+    h1 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      margin-bottom: 24px;
+      color: #e4d7c5;
+    }
 
-.logo-block {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
+    /* 説明文 */
+    .description {
+      font-size: 14px;
+      line-height: 2.1;
+      margin-bottom: 34px;
+      opacity: 0.85;
+    }
 
-.logo-block img {
-  width: 180px;
-  margin-bottom: 18px;
-}
+    /* ボタン */
+    .btn {
+      display: block;
+      width: 100%;
+      max-width: 420px;
+      margin: 14px auto;
+      padding: 17px 18px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 999px;
+      text-decoration: none;
+      background: #e4d7c5;
+      color: #373f5c;
+      transition: all 0.2s ease;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      letter-spacing: 0.06em;
+    }
 
-/* ロゴ下情報 */
-.info {
-  font-size: 12px;
-  line-height: 2;
-  opacity: 0.85;
-}
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.25);
+    }
 
-/* セクション */
-.section {
-  padding: 48px 28px 56px;
-  text-align: center;
-}
+    .btn.secondary {
+      background: transparent;
+      border: 2px solid #e4d7c5;
+      color: #e4d7c5;
+    }
 
-/* 説明文 */
-.description {
-  font-size: 13px;
-  line-height: 2.2;
-  margin-bottom: 36px;
-  opacity: 0.8;
-}
+    .footer {
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(228,215,197,0.25);
+      font-size: 13px;
+      line-height: 1.9;
+      letter-spacing: 0.04em;
+      color: #e4d7c5;
+      opacity: 0.85;
+    }
 
-/* ボタン */
-.btn {
-  display: block;
-  width: 100%;
-  margin: 14px auto;
-  padding: 18px;
-  text-decoration: none;
-  font-size: 15px;
-  letter-spacing: 0.08em;
-  border-radius: 2px;
-  transition: 0.25s;
-}
+    .footer .store-name {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
 
-/* メイン */
-.btn.primary {
-  background: #e6dccb;
-  color: #3c4361;
-}
+    .footer .label {
+      display: inline-block;
+      width: 72px;
+      opacity: 0.7;
+    }
 
-/* セカンダリ */
-.btn.secondary {
-  border: 1px solid #e6dccb;
-  color: #e6dccb;
-}
+    .footer .copyright {
+      margin-top: 14px;
+      font-size: 11px;
+      opacity: 0.55;
+      letter-spacing: 0.06em;
+    }
+      display: inline-block;
+      width: 72px;
+      opacity: 0.7;
+    }
 
-/* ホバー */
-.btn:hover {
-  opacity: 0.75;
-}
+    .footer {
+      margin-top: 32px;
+      font-size: 12px;
+      opacity: 0.6;
+      letter-spacing: 0.05em;
+    }
 
-/* 区切り線 */
-.divider {
-  width: 60px;
-  height: 1px;
-  background: rgba(230,220,203,0.3);
-  margin: 48px auto;
-}
+    /* スマホ微調整 */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 20px;
+      }
 
-/* フッター */
-.footer {
-  font-size: 12px;
-  line-height: 2;
-  opacity: 0.7;
-}
+      .description {
+        font-size: 13px;
+      }
 
-/* スマホ */
-@media (max-width: 480px) {
-  .hero {
-    height: 65vh;
-  }
-
-  .logo-block img {
-    width: 140px;
-  }
-
-  .info {
-    font-size: 11px;
-  }
-}
-</style>
+      .btn {
+        font-size: 15px;
+        padding: 16px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="wrapper">
-
-  <!-- FV -->
+  <!-- FV（フル幅） -->
   <div class="hero">
-    <img class="bg" src="fv.png" alt="">
-    
-    <div class="logo-block">
-      <img src="logo.png" alt="Portrait">
-
-      <div class="info">
-        Bistro — Natural Wine — Bar<br>
-        1F Hirokoji YMD Building, 1-20-25 Nishiki, Naka-ku, Nagoya<br>
-        1 min from Fushimi Station<br>
-        Open Mon–Sat｜18:00–24:00<br>
-        @portrait_nagoya
-      </div>
-    </div>
+    <img src="fv.png" alt="Portrait Nagoya" />
+    <img class="logo-overlay" src="logo.png" alt="logo" />
   </div>
 
-  <!-- 予約 -->
-  <div class="section">
+  <div class="wrapper">
+
+    <h1>ご予約ページ</h1>
 
     <div class="description">
       ご都合に合わせて予約方法をお選びいただけます。<br>
       空席確認はオンライン、細かなご相談はお電話がおすすめです。<br>
-      お電話は15:00–18:00頃が比較的繋がりやすくなっております。
+      お電話は15：00〜18：00頃が比較的繋がりやすいです。
     </div>
 
-    <a class="btn primary" href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=23089838&utm_source=ig&utm_medium=social&utm_content=link_in_bio" target="_blank">
+    <a class="btn"
+      href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=23089838&utm_source=ig&utm_medium=social&utm_content=link_in_bio"
+      target="_blank">
       食べログで予約する
     </a>
 
-    <a class="btn secondary" href="https://yoyaku.toreta.in/portrait/#/" target="_blank">
+    <a class="btn secondary"
+      href="https://yoyaku.toreta.in/portrait/#/"
+      target="_blank">
       トレタで予約する
     </a>
 
-    <a class="btn secondary" href="tel:0000000000">
-      電話で予約する
+    <a class="btn secondary"
+      href="tel:0522536762">
+      電話で予約する（052-253-6762）
     </a>
 
-    <div class="divider"></div>
-
     <div class="footer">
-      Portrait Nagoya<br>
-      愛知県名古屋市中区錦1-20-25 広小路YMDビル1F
+      <div class="store-name">Portrait Nagoya
+      <div class="copyright">© 2026 Portrait Nagoya</div>
+    </div>
+      <div>愛知県名古屋市中区錦1-20-25 広小路YMDビル 1F</div>
+      <div><span class="label">営業時間</span>18:00 - 00:00</div>
+      <div><span class="label">定休日</span>日曜（日曜日以外の祝日は営業します。）</div>
     </div>
 
   </div>
-
-</div>
 
 </body>
 </html>
