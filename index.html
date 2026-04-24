@@ -1,132 +1,119 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ご予約ページ</title>
-
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1650230939558200');
-  fbq('track', 'PageView');
-  </script>
-  <noscript>
-  <img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1650230939558200&ev=PageView&noscript=1"/>
-  </noscript>
-  <!-- End Meta Pixel Code -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservation</title>
 
   <style>
     body {
       margin: 0;
-      font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+      font-family: "Hiragino Sans", "ヒラギノ角ゴシック", -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: #373f5c;
-      color: #e4d7c5;
-      text-align: center;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
 
-    .container {
-      max-width: 480px;
-      margin: 0 auto;
-      padding: 24px 16px 40px;
-    }
-
-    .fv {
+    .wrapper {
       width: 100%;
-      border-radius: 16px;
-      margin-bottom: 32px;
+      max-width: 520px;
+      text-align: center;
+      padding: 24px 20px 40px;
+      box-sizing: border-box;
+    }
+
+    .hero {
+      width: 100%;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      margin-bottom: 28px;
+    }
+
+    .hero img {
+      width: 100%;
+      display: block;
     }
 
     h1 {
       font-size: 22px;
-      margin-bottom: 32px;
       font-weight: 600;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
+      margin-bottom: 26px;
+      color: #e4d7c5;
     }
 
     .btn {
       display: block;
       width: 100%;
-      padding: 16px;
-      margin-bottom: 16px;
-      background-color: #e4d7c5;
-      color: #373f5c;
-      text-decoration: none;
-      border-radius: 12px;
+      max-width: 420px;
+      margin: 14px auto;
+      padding: 16px 18px;
       font-size: 16px;
       font-weight: 600;
-      transition: opacity 0.2s ease;
+      border-radius: 999px;
+      text-decoration: none;
+      background: #e4d7c5;
+      color: #373f5c;
+      transition: all 0.2s ease;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
     }
 
     .btn:hover {
-      opacity: 0.85;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.25);
     }
 
-    .note {
-      margin-top: 24px;
+    .btn.secondary {
+      background: transparent;
+      border: 2px solid #e4d7c5;
+      color: #e4d7c5;
+    }
+
+    .footer {
+      margin-top: 28px;
       font-size: 12px;
-      opacity: 0.7;
+      opacity: 0.6;
+      letter-spacing: 0.05em;
     }
-  
-/* --- Mobile button visibility fix --- */
-body {
-  margin: 0;
-  padding: 0;
-}
 
-.container {
-  padding: 20px;
-  box-sizing: border-box;
-}
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 20px;
+      }
 
-button, .btn {
-  width: 100%;
-  max-width: 420px;
-  margin: 12px auto;
-  display: block;
-  box-sizing: border-box;
-}
-
-</style>
+      .btn {
+        font-size: 15px;
+        padding: 15px;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <div class="wrapper">
 
-  <div class="container">
-
-    <!-- FV画像（ここを差し替え） -->
-    <img src="fv.png" alt="Restaurant" class="fv">
+    <div class="hero">
+      <img src="fv.png" alt="Portrait Nagoya" />
+    </div>
 
     <h1>ご予約ページ</h1>
 
-    <!-- 食べログ予約 -->
-    <a href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=23089838&utm_source=ig&utm_medium=social&utm_content=link_in_bio"
-       target="_blank"
-       class="btn"
-       onclick="fbq('track', 'Reserve_Tabelog');">
+    <a class="btn" href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=23089838&utm_source=ig&utm_medium=social&utm_content=link_in_bio" target="_blank">
       食べログで予約する
     </a>
 
-    <!-- トレタ予約 -->
-    <a href="https://yoyaku.toreta.in/portrait/#/"
-       target="_blank"
-       class="btn"
-       onclick="fbq('track', 'Reserve_Toreta');">
+    <a class="btn secondary" href="https://yoyaku.toreta.in/portrait/#/" target="_blank">
       トレタで予約する
     </a>
 
-    <div class="note">
-      ボタンを押すと予約サイトへ移動します
+    <div class="footer">
+      ONLINE RESERVATION
     </div>
 
   </div>
-
 </body>
 </html>
