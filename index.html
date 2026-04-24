@@ -49,8 +49,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 60%;
-      max-width: 260px;
+      width: 30%;
+      max-width: 1000px;
       opacity: 0.95;
     }
 
@@ -193,6 +193,16 @@
     padding-right: 40px;
   }
 
+}
+    /* PC（画面幅が768px以上）のときだけ高さを画面いっぱいにする */
+@media (min-width: 768px) {
+  .hero {
+    height: 100vh;
+    /* 中の文字を中央に寄せたい場合 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
   </style>
 
