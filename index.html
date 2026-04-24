@@ -26,34 +26,51 @@
       box-sizing: border-box;
     }
 
-    /* FVを画面横100%にする（PCでもスマホでも） */
-    .hero {
-      position: relative;
-      width: 100vw;
-      margin-left: calc(50% - 50vw);
-      overflow: hidden;
-      margin-bottom: 15px;
-    }
+    /* FVを画面横100%にする */
+    .hero {
+      position: relative;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      overflow: hidden;
+      margin-bottom: 32px;
+      height: auto; /* スマホは自動 */
+    }
 
-    .hero img {
-      width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-      object-fit: cover;
-    }
+    /* PC時：高さを画面いっぱいにする */
+    @media (min-width: 768px) {
+      .hero {
+        height: 100vh;
+      }
+    }
 
-    /* ロゴ中央配置 */
-    .logo-overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 10vw;
-      max-width: 500px;
-      opacity: 0.95;
-    }
+    .hero img:not(.logo-overlay) {
+      width: 100%;
+      height: 100%;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover; /* 枠に合わせて画像をフィット */
+    }
 
+    /* ロゴ中央配置 */
+    .logo-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60%; /* スマホ時のデフォルト */
+      max-width: 260px;
+      opacity: 0.95;
+      z-index: 10;
+    }
+
+    /* PC時：ロゴを画面横幅の10%にする */
+    @media (min-width: 768px) {
+      .logo-overlay {
+        width: 10vw; 
+        min-width: 120px; /* 小さくなりすぎないよう調整 */
+        max-width: 500px;
+      }
+    }
     h1 {
       font-size: 22px;
       font-weight: 600;
