@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="format-detection" content="telephone=no" />
-  <title>Reservation</title>
+  <title>Portrait Nagoya Reservation</title>
 
   <style>
     body {
@@ -63,7 +63,7 @@
 
     /* 説明文 */
     .description {
-      font-size: 14px;
+      font-size: 11px;
       line-height: 2.1;
       margin-bottom: 34px;
       opacity: 0.85;
@@ -98,7 +98,7 @@
       color: #373f5c;
     }
 
-    .footer {
+  .footer {
       text-align: left;
       margin-top: 36px;
       padding-top: 24px;
@@ -141,34 +141,31 @@
     }
 
     /* スマホ微調整 */
-@media (min-width: 768px) {
+    @media (max-width: 480px) {
+      .wrapper {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
 
-  .wrapper {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
+      .btn {
+        width: 70%;
+        max-width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 12px;
+        padding: 16px;
+      }
 
-  .btn {
-    width: 70%;
-    max-width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-  }
+      h1 {
+        font-size: 20px;
+      }
 
-  h1 {
-    font-size: 18px;
-  }
-
-  .description {
-    font-size: 14px;
-  }
-
-.btn {
-  font-size: 12px; padding: 16px; 
-　}
-
-}
+      .description {
+        font-size: 11px;
+      }
+    }
   </style>
+
   <!-- Meta Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -209,23 +206,23 @@
     </div>
 
     <a class="btn"
-      onclick="fbq('track','Reserve_Tabelog');"
-      href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=23089838&utm_source=ig&utm_medium=social&utm_content=link_in_bio"
-      target="_blank">
+       onclick="fbq('track','Reserve_Tabelog');"
+       href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=23089838&utm_source=ig&utm_medium=social&utm_content=link_in_bio"
+       target="_blank">
       食べログで予約する
     </a>
 
     <a class="btn secondary"
-      onclick="fbq('track','Reserve_Toreta');"
-      href="https://yoyaku.toreta.in/portrait/#/"
-      target="_blank">
+       onclick="fbq('track','Reserve_Toreta');"
+       href="https://yoyaku.toreta.in/portrait/#/"
+       target="_blank">
       トレタで予約する
     </a>
 
     <a class="btn secondary"
-      onclick="fbq('track','Call_Click');"
-      href="tel:0522536762">
-      電話で予約する（052-253-6762）
+       onclick="fbq('track','Call_Click');"
+       href="tel:0522536762">
+      電話で予約する
     </a>
 
     <div class="footer">
@@ -235,9 +232,5 @@
       <div>電話番号　052-253-6762</div>
       <div class="copyright">© 2026 Portrait Nagoya</div>
     </div>
-     
 
-  </div>
-
-</body>
-</html>
+  </div
