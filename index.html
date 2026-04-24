@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="format-detection" content="telephone=no" />
-  <title>Portrait Nagoya Reservation</title>
+  <title>Reservation</title>
 
   <style>
     body {
@@ -63,7 +63,7 @@
 
     /* 説明文 */
     .description {
-      font-size: 11px;
+      font-size: 14px;
       line-height: 2.1;
       margin-bottom: 34px;
       opacity: 0.85;
@@ -99,10 +99,11 @@
     }
 
     .footer {
+      text-align: left;
       margin-top: 36px;
       padding-top: 24px;
       border-top: 1px solid rgba(228,215,197,0.25);
-      font-size: 11px;
+      font-size: 13px;
       line-height: 1.9;
       letter-spacing: 0.04em;
       color: #e4d7c5;
@@ -110,7 +111,7 @@
     }
 
     .footer .store-name {
-      font-size: 11px;
+      font-size: 15px;
       font-weight: 600;
       letter-spacing: 0.08em;
       margin-bottom: 8px;
@@ -123,7 +124,7 @@
 
     .footer .copyright {
       margin-top: 14px;
-      font-size: 9px;
+      font-size: 11px;
       opacity: 0.55;
       letter-spacing: 0.06em;
     }
@@ -134,21 +135,23 @@
 
     .footer {
       margin-top: 32px;
-      font-size: 9px;
+      font-size: 12px;
       opacity: 0.6;
       letter-spacing: 0.05em;
     }
 
     /* スマホ微調整 */
-    @media (max-width: 480px) {
+    @media (min-width: 768px) {
+      .footer {
+        width: 90%; {
       .wrapper {
         padding-left: 24px;
         padding-right: 24px;
       }
 
       .btn {
-        width: 70%;
-        max-width: 70%;
+        width: 100%;
+        max-width: 100%;
         margin-left: auto;
         margin-right: auto;
       }
@@ -157,11 +160,11 @@
       }
 
       .description {
-        font-size: 11px;
+        font-size: 13px;
       }
 
       .btn {
-        font-size: 12px;
+        font-size: 15px;
         padding: 16px;
       }
     }
@@ -222,17 +225,14 @@
     <a class="btn secondary"
       onclick="fbq('track','Call_Click');"
       href="tel:0522536762">
-      電話で予約する
+      電話で予約する（052-253-6762）
     </a>
 
     <div class="footer">
       <div>愛知県名古屋市中区錦1-20-25 広小路YMDビル 1F</div>
-      <div>営業時間</div>
-      <div>18:00 - 00:00</div>
-      <div>定休日</div>
-      <div>日曜（日曜日以外の祝日は営業します。）</div>
-      <div>電話番号</div>
-      <div>052-253-6762</div>
+      <div>営業時間　18:00 - 00:00</div>
+      <div>定休日　日曜（日曜日以外の祝日は営業します。）</div>
+      <div>電話番号　052-253-6762</div>
       <div class="copyright">© 2026 Portrait Nagoya</div>
     </div>
      
