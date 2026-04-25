@@ -17,21 +17,19 @@
   </script>
 
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e);
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1650230939558200');
-    fbq('track', 'PageView');
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e);
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1650230939558200');
+  fbq('track', 'PageView');
   </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1650230939558200&ev=PageView&noscript=1"/>
-  </noscript>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1650230939558200&ev=PageView&noscript=1"/></noscript>
 
   <style>
     :root {
@@ -42,225 +40,60 @@
     }
     html { scroll-behavior: smooth; }
     body {
-      overflow-x: hidden;
-      margin: 0;
-      background-color: var(--bg-color);
-      color: white;
-      font-family: "Helvetica", "Hiragino Sans", "ヒラギノ角ゴシック", sans-serif;
-      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden; margin: 0; background-color: var(--bg-color); color: white;
+      font-family: "Helvetica", "Hiragino Sans", sans-serif; -webkit-font-smoothing: antialiased;
     }
     .fixed-background {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100vh;
-      z-index: -1;
-      background: #000;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; background: #000;
     }
-    .fixed-background img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      filter: brightness(0.4);
-    }
+    .fixed-background img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.4); }
     .hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
+      position: relative; width: 100%; height: 100vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; z-index: 10;
     }
-    .main-logo {
-      width: 38%;
-      max-width: 170px;
-      opacity: 0;
-      transform: translateY(15px);
-      animation: fvEntranceSimple 2.2s var(--luxury-ease) 0.5s forwards;
-    }
-    .hero-text {
-      font-size: 10px;
-      font-weight: 300;
-      letter-spacing: 0.5em;
-      color: var(--accent-color);
-      text-transform: uppercase;
-      margin-top: 15px;
-      opacity: 0;
-      transform: translateY(15px);
-      animation: fvEntranceSimple 2.2s var(--luxury-ease) 0.5s forwards;
-    }
-    .scroll-guide {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-      opacity: 0;
-      text-decoration: none;
-      cursor: pointer;
-      animation: fvEntrance 2.2s var(--luxury-ease) 0.5s forwards;
-    }
+    .main-logo { width: 38%; max-width: 170px; opacity: 0; transform: translateY(15px); animation: fvEntranceSimple 2.2s var(--luxury-ease) 0.5s forwards; }
+    .hero-text { font-size: 10px; letter-spacing: 0.5em; color: var(--accent-color); text-transform: uppercase; margin-top: 15px; opacity: 0; transform: translateY(15px); animation: fvEntranceSimple 2.2s var(--luxury-ease) 0.5s forwards; }
+    .scroll-guide { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 12px; opacity: 0; text-decoration: none; animation: fvEntrance 2.2s var(--luxury-ease) 0.5s forwards; }
     @keyframes fvEntrance { to { opacity: 1; transform: translate(-50%, 0); } }
     @keyframes fvEntranceSimple { to { opacity: 1; transform: translateY(0); } }
     
     /* SCROLL 7px */
-    .scroll-guide span {
-      font-size: 7px;
-      letter-spacing: 0.4em;
-      color: var(--accent-color);
-      font-weight: 300;
-      text-transform: uppercase;
-    }
-    .scroll-line {
-      width: 1px;
-      height: 35px;
-      background-color: var(--accent-line);
-      position: relative;
-      overflow: hidden;
-    }
-    .scroll-line::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: var(--accent-color);
-      transform: translateY(-100%);
-      animation: lineFlow 3.5s infinite var(--luxury-ease);
-    }
-    @keyframes lineFlow {
-      0% { transform: translateY(-100%); }
-      100% { transform: translateY(100%); }
-    }
-    .content-area {
-      position: relative;
-      background-color: var(--bg-color);
-      z-index: 20;
-    }
-    .wrapper {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 80px 30px;
-      text-align: center;
-    }
+    .scroll-guide span { font-size: 7px; letter-spacing: 0.4em; color: var(--accent-color); font-weight: 300; text-transform: uppercase; }
+    .scroll-line { width: 1px; height: 35px; background-color: var(--accent-line); position: relative; overflow: hidden; }
+    .scroll-line::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--accent-color); transform: translateY(-100%); animation: lineFlow 3.5s infinite var(--luxury-ease); }
+    @keyframes lineFlow { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
+
+    .content-area { position: relative; background-color: var(--bg-color); z-index: 20; }
+    .wrapper { max-width: 800px; margin: 0 auto; padding: 80px 30px; text-align: center; }
     .section-header { margin-bottom: 40px; }
-    .section-en {
-      display: block;
-      font-size: 24px;
-      font-weight: 300;
-      letter-spacing: 0.25em;
-      color: var(--accent-color);
-      margin-bottom: 8px;
-      text-transform: uppercase;
-    }
-    .section-ja {
-      display: block;
-      font-size: 9px;
-      letter-spacing: 0.3em;
-      color: var(--accent-color);
-      opacity: 0.6;
-    }
-    .description {
-      font-size: 10px;
-      font-weight: 300;
-      line-height: 2.2;
-      margin-bottom: 50px;
-      opacity: 0.9;
-      letter-spacing: 0.08em;
-      max-width: 440px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .btn-group {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      align-items: center;
-    }
+    .section-en { display: block; font-size: 24px; font-weight: 300; letter-spacing: 0.25em; color: var(--accent-color); margin-bottom: 8px; text-transform: uppercase; }
+    .section-ja { display: block; font-size: 9px; letter-spacing: 0.3em; color: var(--accent-color); opacity: 0.6; }
+    .description { font-size: 10px; line-height: 2.2; margin-bottom: 50px; opacity: 0.9; letter-spacing: 0.08em; max-width: 440px; margin-left: auto; margin-right: auto; }
+    .btn-group { display: flex; flex-direction: column; gap: 20px; align-items: center; }
     .btn {
-      position: relative;
-      display: block;
-      width: 100%;
-      max-width: 220px;
-      padding: 15px 0;
-      font-size: 10px;
-      font-weight: 400;
-      text-decoration: none;
-      color: var(--accent-color);
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
+      position: relative; display: block; width: 100%; max-width: 220px; padding: 15px 0; font-size: 10px;
+      text-decoration: none; color: var(--accent-color); letter-spacing: 0.3em; text-transform: uppercase;
       transition: color 0.6s var(--luxury-ease), letter-spacing 0.6s var(--luxury-ease);
     }
-    .btn::before {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 100%; height: 1px;
-      background-color: rgba(228, 215, 197, 0.15);
-      transition: transform 0.6s var(--luxury-ease);
-      transform-origin: right;
-    }
-    .btn::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 100%; height: 1px;
-      background-color: var(--accent-color);
-      transform: scaleX(0);
-      transition: transform 0.6s var(--luxury-ease);
-      transform-origin: left;
-    }
-    .btn:hover {
-      color: white;
-      letter-spacing: 0.45em;
-    }
+    .btn::before { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 1px; background-color: rgba(228, 215, 197, 0.15); transition: transform 0.6s var(--luxury-ease); transform-origin: right; }
+    .btn::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 1px; background-color: var(--accent-color); transform: scaleX(0); transition: transform 0.6s var(--luxury-ease); transform-origin: left; }
+    .btn:hover { color: white; letter-spacing: 0.45em; }
     .btn:hover::before { transform: scaleX(0); }
     .btn:hover::after { transform: scaleX(1); }
-    .footer {
-      margin-top: 80px;
-      padding: 40px 0 30px;
-      border-top: 1px solid rgba(228, 215, 197, 0.08);
-      font-size: 9px;
-      font-weight: 300;
-      line-height: 2.2;
-      letter-spacing: 0.05em;
-      color: var(--accent-color);
-    }
-    .copyright {
-      margin-top: 25px;
-      font-size: 8px;
-      opacity: 0.6;
-    }
-    .reveal {
-      opacity: 0;
-      transform: translateY(15px);
-      transition: all 1.2s var(--luxury-ease);
-    }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    @media (min-width: 768px) {
-      .btn-group { flex-direction: row; justify-content: center; gap: 40px; }
-      .wrapper { padding: 100px 40px; }
-    }
+    .footer { margin-top: 80px; padding: 40px 0 30px; border-top: 1px solid rgba(228, 215, 197, 0.08); font-size: 9px; color: var(--accent-color); }
+    .copyright { margin-top: 25px; font-size: 8px; opacity: 0.6; }
+    .reveal { opacity: 0; transform: translateY(15px); transition: all 1.2s var(--luxury-ease); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    @media (min-width: 768px) { .btn-group { flex-direction: row; justify-content: center; gap: 40px; } }
   </style>
 </head>
 
 <body>
-  <div class="fixed-background">
-    <img src="FV2.jpg" alt="Portrait Nagoya" />
-  </div>
-
+  <div class="fixed-background"><img src="FV2.jpg" alt="Portrait Nagoya" /></div>
   <div class="hero">
     <img src="logo.png" alt="logo" class="main-logo" />
     <div class="hero-text">Reservation Site</div>
-    <a href="#reservation-start" class="scroll-guide">
-      <span>SCROLL</span>
-      <div class="scroll-line"></div>
-    </a>
+    <a href="#reservation-start" class="scroll-guide"><span>SCROLL</span><div class="scroll-line"></div></a>
   </div>
 
   <div class="content-area" id="reservation-start">
@@ -270,22 +103,15 @@
         <span class="section-ja">ご予約</span>
       </div>
       <div class="reveal">
-        <div class="description">
-          お好みのご予約方法をお選びいただけます。<br>
-          空席確認はオンライン、細かなご相談はお電話がおすすめです。<br>
-          お電話は、15:00〜18:00が比較的繋がりやすい時間帯です。
-        </div>
+        <div class="description">お好みのご予約方法をお選びいただけます。<br>空席確認はオンライン、細かなご相談はお電話がおすすめです。</div>
       </div>
       <div class="btn-group reveal" style="transition-delay: 0.2s;">
-        <a class="btn" onclick="fbq('track','Reserve_Tabelog');" href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=23089838" target="_blank">Tabelog</a>
+        <a class="btn" onclick="fbq('track','Reserve_Tabelog');" href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=23089838&utm_source=ig&utm_medium=social&utm_content=link_in_bio" target="_blank">Tabelog</a>
         <a class="btn" onclick="fbq('track','Reserve_Toreta');" href="https://yoyaku.toreta.in/portrait/#/" target="_blank">Toreta</a>
         <a class="btn" onclick="fbq('track','Call_Click');" href="tel:0522536762">Phone</a>
       </div>
       <footer class="footer reveal">
-        <div class="footer-info">
-          1F Hirokoji YMD Bldg, 1-20-25 Nishiki, Naka-ku, Nagoya<br>
-          18:00 - 00:00 | Closed on Sunday | 052-253-6762
-        </div>
+        <div>1F Hirokoji YMD Bldg, 1-20-25 Nishiki, Naka-ku, Nagoya</div>
         <div class="copyright">© 2026 PORTRAIT NAGOYA</div>
       </footer>
     </div>
@@ -293,11 +119,7 @@
 
   <script>
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
