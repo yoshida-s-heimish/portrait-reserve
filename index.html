@@ -309,9 +309,9 @@
       </div>
 
       <div class="btn-group reveal" style="transition-delay: 0.2s;">
-        <a class="btn" href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=23089838" target="_blank" onclick="trackClick('Reserve_Tabelog')">Tabelog</a>
-        <a class="btn" href="https://yoyaku.toreta.in/portrait/#/" target="_blank" onclick="trackClick('Reserve_Toreta')">Toreta</a>
-        <a class="btn" href="tel:0522536762" onclick="trackClick('Call_Click')">Phone</a>
+        <a class="btn" onclick="fbq('track','Reserve_Tabelog');" href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=23089838" target="_blank">Tabelog</a>
+        <a class="btn" onclick="fbq('track','Reserve_Toreta');" href="https://yoyaku.toreta.in/portrait/#/" target="_blank">Toreta</a>
+        <a class="btn" onclick="fbq('track','Call_Click');" href="tel:0522536762">Phone</a>
       </div>
 
       <footer class="footer reveal">
@@ -325,12 +325,6 @@
   </div>
 
   <script>
-    function trackClick(eventName) {
-      if (typeof fbq === 'function') {
-        fbq('track', eventName);
-      }
-    }
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
