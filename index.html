@@ -29,8 +29,28 @@
       overflow-x: hidden; margin: 0; background-color: var(--bg-color); color: white;
       font-family: "Helvetica", "Hiragino Sans", "ヒラギノ角ゴシック", sans-serif; -webkit-font-smoothing: antialiased;
     }
-    .fixed-background { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: -1; background: #000; }
-    .fixed-background img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.4); }
+    .fixed-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* 100vhの代わりに、より安定した100%や100dvhを使うか、余裕を持たせる */
+  height: 100%; 
+  min-height: -webkit-fill-available; /* iOS Safari用 */
+  z-index: -1;
+  background: #000;
+  /* 画像が動かないように固定 */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+    .fixed-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.4);
+  /* ここがポイント：スクロール時にリサイズさせない */
+  will-change: transform; 
+}
     .hero { position: relative; width: 100%; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 10; }
     .main-logo { width: 38%; max-width: 170px; opacity: 0; transform: translateY(15px); animation: fvEntranceSimple 2.2s var(--luxury-ease) 0.5s forwards; }
     .hero-text { font-size: 10px; font-weight: 300; letter-spacing: 0.5em; color: var(--accent-color); text-transform: uppercase; margin-top: 15px; opacity: 0; transform: translateY(15px); animation: fvEntranceSimple 2.2s var(--luxury-ease) 0.5s forwards; }
@@ -42,7 +62,19 @@
     .scroll-guide span { font-size: 7px; letter-spacing: 0.4em; color: var(--accent-color); font-weight: 300; text-transform: uppercase; }
     
     .scroll-line { width: 1px; height: 35px; background-color: var(--accent-line); position: relative; overflow: hidden; }
-    .scroll-line::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--accent-color); transform: translateY(-100%); animation: lineFlow 3.5s infinite var(--luxury-ease); }
+    .scroll-line::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: var(--accent-color);
+  transform: translateY(-100%);
+  /* cubic-bezier(0.4, 0, 0.3, 1) に変更 
+     - 0.4: 最初はゆったり動き出し
+     - 0.3: 最後のブレーキを大幅に弱くして「スッ」と抜けるように
+  */
+  animation: lineFlow 2.5s infinite cubic-bezier(0.4, 0, 0.3, 1);
+}
     @keyframes lineFlow { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
 
     .content-area { position: relative; background-color: var(--bg-color); z-index: 20; }
@@ -65,23 +97,21 @@
     @media (min-width: 768px) { .btn-group { flex-direction: row; justify-content: center; gap: 40px; } .wrapper { padding: 100px 40px; } }
   </style>
 
- <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1650230939558200');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1650230939558200&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e);
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1650230939558200');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1650230939558200&ev=PageView&noscript=1"
+  /></noscript>
   </head>
 
 <body>
