@@ -4,349 +4,336 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="format-detection" content="telephone=no" />
-  <title>Portrait Nagoya Reservation</title>
+  <title>Portrait Nagoya | RESERVATIONS</title>
   <meta name="facebook-domain-verification" content="0zlvpebzefuke2v9h4b2p4c0p450d6" />
   <link rel="icon" href="favicon.png" type="image/png">
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JP160STE5K"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-JP160STE5K');
-</script>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JP160STE5K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JP160STE5K');
+  </script>
 
   <style>
+    :root {
+      --bg-color: #373f5c;
+      --accent-color: #e4d7c5;
+      --accent-line: rgba(228, 215, 197, 0.2);
+      --luxury-ease: cubic-bezier(0.2, 1, 0.2, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
     body {
       overflow-x: hidden;
       margin: 0;
-      font-family: "Hiragino Sans", "ヒラギノ角ゴシック", -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: #373f5c;
+      background-color: var(--bg-color);
       color: white;
+      font-family: "Helvetica", "Hiragino Sans", "ヒラギノ角ゴシック", sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* コンテンツ幅 */
-    .wrapper {
-      width: 100%;
-      max-width: 520px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 22px 20px 48px;
-      box-sizing: border-box;
+    /* --- 背景 (固定) --- */
+    .fixed-background {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100vh;
+      z-index: -1;
+      background: #000;
+    }
+    .fixed-background img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.4);
     }
 
-    /* FVを画面横100%にする */
+    /* --- FV (全要素同時出し) --- */
     .hero {
       position: relative;
-      width: 100vw;
-      margin-left: calc(50% - 50vw);
-      overflow: hidden;
-      margin-bottom: 22px;
-      height: auto; /* スマホは自動 */
-    }
-
-    /* PC時：高さを画面いっぱいにする */
-    @media (min-width: 768px) {
-      .hero {
-        height: 100vh;
-      }
-    }
-
-    .hero img:not(.logo-overlay) {
       width: 100%;
-      height: 100%;
-      display: block;
-      margin: 0 auto;
-      object-fit: cover; /* 枠に合わせて画像をフィット */
-    }
-
-    /* ロゴ中央配置 */
-    .logo-overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 50%; /* スマホ時のデフォルト */
-      max-width: 260px;
-      opacity: 0.95;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       z-index: 10;
     }
 
-    /* PC時：ロゴを画面横幅の10%にする */
-    @media (min-width: 768px) {
-      .logo-overlay {
-        width: 30%; 
-        min-width: 300px; /* 小さくなりすぎないよう調整 */
-        max-width: 500px;
-      }
-    }
-    h1 {
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      margin-bottom: 30px;
-      color: #e4d7c5;
+    .main-logo {
+      width: 38%;
+      max-width: 170px;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fvEntranceSimple 2.2s var(--luxury-ease) 0.5s forwards;
     }
 
-    /* 説明文 */
+    .hero-text {
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.5em;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      margin-top: 15px;
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fvEntranceSimple 2.2s var(--luxury-ease) 0.5s forwards;
+    }
+
+    .scroll-guide {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      opacity: 0;
+      text-decoration: none;
+      cursor: pointer;
+      animation: fvEntrance 2.2s var(--luxury-ease) 0.5s forwards;
+    }
+
+    @keyframes fvEntrance {
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+    @keyframes fvEntranceSimple {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .scroll-guide span {
+      font-size: 10px;
+      letter-spacing: 0.4em;
+      color: var(--accent-color);
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 35px;
+      background-color: var(--accent-line);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scroll-line::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: var(--accent-color);
+      transform: translateY(-100%);
+      animation: lineFlow 3.5s infinite var(--luxury-ease);
+    }
+
+    @keyframes lineFlow {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100%); }
+    }
+
+    /* --- コンテンツエリア --- */
+    .content-area {
+      position: relative;
+      background-color: var(--bg-color);
+      z-index: 20;
+    }
+
+    .wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 80px 30px;
+      text-align: center;
+    }
+
+    .section-header { margin-bottom: 40px; }
+
+    .section-en {
+      display: block;
+      font-size: 24px;
+      font-weight: 300;
+      letter-spacing: 0.25em;
+      color: var(--accent-color);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .section-ja {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      color: var(--accent-color);
+      opacity: 0.6;
+    }
+
     .description {
-      font-size: 11px;
-      line-height: 2.1;
-      margin-bottom: 34px;
-      opacity: 0.85;
+      font-size: 10px;
+      font-weight: 300;
+      line-height: 2.2;
+      margin-bottom: 50px;
+      opacity: 0.9;
+      letter-spacing: 0.08em;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    /* ボタン */
+    /* --- ✨ デザイン事務所クオリティのボタンホバー --- */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
     .btn {
+      position: relative;
       display: block;
       width: 100%;
-      max-width: 420px;
-      margin: 20px auto;
-      padding: 17px 18px;
-      font-size: 12px;
-      font-weight: 600;
-      border-radius: 999px;
+      max-width: 220px;
+      padding: 15px 0;
+      font-size: 10px;
+      font-weight: 400;
       text-decoration: none;
-      background: #e4d7c5;
-      color: #373f5c;
-      transition: all 0.2s ease;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-      letter-spacing: 0.06em;
+      color: var(--accent-color);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      transition: color 0.6s var(--luxury-ease), letter-spacing 0.6s var(--luxury-ease);
     }
 
+    /* ボタンの底線（デフォルト） */
+    .btn::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 1px;
+      background-color: rgba(228, 215, 197, 0.15);
+      transition: transform 0.6s var(--luxury-ease);
+      transform-origin: right;
+    }
+
+    /* ボタンのホバー線（アクティブ） */
+    .btn::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 1px;
+      background-color: var(--accent-color);
+      transform: scaleX(0);
+      transition: transform 0.6s var(--luxury-ease);
+      transform-origin: left;
+    }
+
+    /* ホバー時の挙動 */
     .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(0,0,0,0.25);
+      color: white;
+      letter-spacing: 0.45em; /* 優雅に広がる字間 */
     }
 
-    .btn.secondary {
-      background: #e4d7c5;
-      border: none;
-      color: #373f5c;
+    .btn:hover::before {
+      transform: scaleX(0); /* 古い線が消える */
     }
 
-  .footer {
-      text-align: left;
-      margin-top: 70px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(228,215,197,0.25);
-      font-size: 12px;
-      line-height: 1.9;
-      letter-spacing: 0.04em;
-      color: #e4d7c5;
-      opacity: 0.85;
-    }
-
-    .footer .store-name {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      margin-bottom: 8px;
-    }
-
-    .footer .label {
-      display: inline-block;
-      width: 72px;
-    }
-
-    .footer .copyright {
-      margin-top: 14px;
-      font-size: 11px;
-      opacity: 0.55;
-      letter-spacing: 0.06em;
-    }
-      display: inline-block;
-      width: 72px;
-      opacity: 0.7;
+    .btn:hover::after {
+      transform: scaleX(1); /* 新しい線がスッと伸びる */
     }
 
     .footer {
-      margin-top: 50px;
-      font-size: 12px;
-      opacity: 0.6;
+      margin-top: 80px;
+      padding: 40px 0 30px;
+      border-top: 1px solid rgba(228, 215, 197, 0.08);
+      font-size: 9px;
+      font-weight: 300;
+      line-height: 2.2;
       letter-spacing: 0.05em;
+      color: var(--accent-color);
     }
 
-    /* スマホ微調整 */
-    @media (max-width: 480px) {
-      .wrapper {
-        padding-left: 24px;
-        padding-right: 24px;
-      }
-
-      .btn {
-        width: 70%;
-        max-width: 70%;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 12px;
-        padding: 16px;
-      }
-
-      h1 {
-        font-size: 20px;
-      }
-
-      .description {
-        font-size: 11px;
-      }
+    .copyright {
+      margin-top: 25px;
+      font-size: 8px;
+      opacity: 0.6;
     }
 
-    /* PCだけ横並び */
-@media (min-width: 768px) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(15px);
+      transition: all 1.2s var(--luxury-ease);
+    }
 
-  .btn-group {
-    display: flex;
-    justify-content: center;
-    gap: 16px;          /* ボタンの間隔 */
-    flex-wrap: nowrap;  /* 1列固定 */
-  }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-  .btn {
-    width: auto;
-    max-width: 240px;   /* ボタン幅 */
-    margin: 14px 0;
-    flex: 1;
-  }
-
-}
-    /* PCだけ横幅を広げる */
-@media (min-width: 768px) {
-
-  .wrapper {
-    max-width: 1200px;   /* ←ここを広げる */
-    padding-left: 40px; /* ←左右の余白 */
-    padding-right: 40px;
-  }
-
-}
-    /* PC（画面幅が768px以上）のときだけ高さを画面いっぱいにする */
-@media (min-width: 768px) {
-  .hero {
-    height: 100vh;
-    /* 中の文字を中央に寄せたい場合 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-  /* --- PCだけスクロールガイドを出す設定 --- */
-@media (min-width: 768px) {
-  .pc-scroll {
-    display: block;
-    position: absolute;
-    bottom: 150px; /* 下からの位置（お好みで調整） */
-    left: 50%;
-    transform: translateX(-50%);
-    color: #e4d7c5;
-    font-size: 10px;
-    letter-spacing: 0.3em;
-    z-index: 10;
-  }
-
-  /* 縦に伸びるオシャレな線 */
-  .pc-scroll::after {
-    content: "";
-    position: absolute;
-    top: 40px;
-    left: 50%;
-    width: 1px;
-    height: 100px; /* 線の長さ */
-    background: #e4d7c5;
-    animation: pc-scroll-anim 2.5s infinite;
-  }
-}
-
-/* スマホでは絶対に出さない */
-@media (max-width: 767px) {
-  .pc-scroll {
-    display: none;
-  }
-}
-
-/* 線がスーッと動くアニメーション */
-@keyframes pc-scroll-anim {
-  0% { transform: scaleY(0); transform-origin: top; }
-  50% { transform: scaleY(1); transform-origin: top; }
-  50.1% { transform: scaleY(1); transform-origin: bottom; }
-  100% { transform: scaleY(0); transform-origin: bottom; }
-}
+    @media (min-width: 768px) {
+      .btn-group { flex-direction: row; justify-content: center; gap: 40px; }
+      .wrapper { padding: 100px 40px; }
+    }
   </style>
-
-
-
-  <!-- Meta Pixel Code -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1650230939558200');
-    fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1650230939558200&ev=PageView&noscript=1"/>
-  </noscript>
-  <!-- End Meta Pixel Code -->
-
 </head>
 
 <body>
 
-  <!-- FV（フル幅） -->
-  <div class="hero">
+  <div class="fixed-background">
     <img src="FV2.jpg" alt="Portrait Nagoya" />
-    <img class="logo-overlay" src="logo.png" alt="logo" />
-
-    <div class="pc-scroll">SCROLL</div>
   </div>
 
-  <div class="wrapper">
-
-    <h1>ご予約ページ</h1>
-
-    <div class="description">
-      ご都合に合わせて予約方法をお選びいただけます。<br>
-      空席確認はオンライン、細かなご相談はお電話がおすすめです。<br>
-      お電話は15:00〜18:00頃が比較的繋がりやすいです。
-    </div>
-
-    <div class="btn-group">
-
-  <a class="btn"
-     onclick="fbq('track','Reserve_Tabelog');"
-     href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=23089838&utm_source=ig&utm_medium=social&utm_content=link_in_bio"
-     target="_blank">
-    食べログで予約する
-  </a>
-
-  <a class="btn secondary"
-     onclick="fbq('track','Reserve_Toreta');"
-     href="https://yoyaku.toreta.in/portrait/#/"
-     target="_blank">
-    トレタで予約する
-  </a>
-
-  <a class="btn secondary"
-     onclick="fbq('track','Call_Click');"
-     href="tel:0522536762">
-    電話で予約する
-  </a>
-
-</div>
-
-    <div class="footer">
-      <div>愛知県名古屋市中区錦1-20-25 広小路YMDビル 1F</div>
-      <div>営業時間　18:00 - 00:00</div>
-      <div>定休日　日曜（日曜日以外の祝日は営業します。）</div>
-      <div>電話番号　052-253-6762</div>
-      <div class="copyright">© 2026 Portrait Nagoya</div>
-    </div>
-
+  <div class="hero">
+    <img src="logo.png" alt="logo" class="main-logo" />
+    <div class="hero-text">Reservation Site</div>
+    
+    <a href="#reservation-start" class="scroll-guide">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </a>
   </div>
+
+  <div class="content-area" id="reservation-start">
+    <div class="wrapper">
+      <div class="reveal section-header">
+        <h1 class="section-en">Reservations</h1>
+        <span class="section-ja">ご予約</span>
+      </div>
+
+      <div class="reveal">
+        <div class="description">
+          お好みのご予約方法をお選びいただけます。<br>
+          空席確認はオンライン、
+          細かなご相談はお電話がおすすめです。<br>
+          お電話は、15:00〜18:00が比較的繋がりやすい時間帯です。
+        </div>
+      </div>
+
+      <div class="btn-group reveal" style="transition-delay: 0.2s;">
+        <a class="btn" onclick="fbq('track','Reserve_Tabelog');" href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=23089838" target="_blank">Tabelog</a>
+        <a class="btn" onclick="fbq('track','Reserve_Toreta');" href="https://yoyaku.toreta.in/portrait/#/" target="_blank">Toreta</a>
+        <a class="btn" onclick="fbq('track','Call_Click');" href="tel:0522536762">Phone</a>
+      </div>
+
+      <footer class="footer reveal">
+        <div class="footer-info">
+          1F Hirokoji YMD Bldg, 1-20-25 Nishiki, Naka-ku, Nagoya<br>
+          18:00 - 00:00 | Closed on Sunday | 052-253-6762
+        </div>
+        <div class="copyright">© 2026 PORTRAIT NAGOYA</div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
