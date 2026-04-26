@@ -40,7 +40,7 @@
     @keyframes fvEntranceSimple { to { opacity: 1; transform: translateY(0); } }
 
     /* SCROLL 7px指定 */
-    .scroll-guide span { font-size: 7px; letter-spacing: 0.4em; color: var(--accent-color); font-weight: 300; text-transform: uppercase; }
+    .scroll-guide span { font-size: 8px; letter-spacing: 0.4em; color: var(--accent-color); font-weight: 300; text-transform: uppercase; }
     
     .scroll-line { width: 1px; height: 35px; background-color: var(--accent-line); position: relative; overflow: hidden; }
     .scroll-line::after {
@@ -61,7 +61,7 @@
     .content-area { position: relative; background-color: var(--bg-color); z-index: 20; }
     .wrapper { max-width: 800px; margin: 0 auto; padding: 80px 30px; text-align: center; }
     .section-header { margin-bottom: 40px; }
-    .section-en { display: block; font-size: 24px; font-weight: 300; letter-spacing: 0.25em; color: var(--accent-color); margin-bottom: 8px; text-transform: uppercase; }
+    .section-en { display: block; font-size: 18px; font-weight: 300; letter-spacing: 0.25em; color: var(--accent-color); margin-bottom: 8px; text-transform: uppercase; }
     .section-ja { display: block; font-size: 9px; letter-spacing: 0.3em; color: var(--accent-color); opacity: 0.6; }
     .description { font-size: 10px; font-weight: 300; line-height: 2.2; margin-bottom: 50px; opacity: 0.9; letter-spacing: 0.08em; max-width: 440px; margin-left: auto; margin-right: auto; }
     .btn-group { display: flex; flex-direction: column; gap: 20px; align-items: center; }
@@ -75,6 +75,18 @@
     .copyright { margin-top: 25px; font-size: 8px; opacity: 0.6; }
     .reveal { opacity: 0; transform: translateY(15px); transition: all 1.2s var(--luxury-ease); }
     .reveal.active { opacity: 1; transform: translateY(0); }
+    /* Google Map用のスタイル */
+    .map-container {
+      margin: 0 auto 20px; /* 上の余白を見出し側で制御するため0に */
+      width: 100%;
+      max-width: 800px;
+      filter: grayscale(0.3) contrast(1.1);
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 350px;
+      border: 1px solid var(--accent-line);
+    }
     @media (min-width: 768px) { .btn-group { flex-direction: row; justify-content: center; gap: 40px; } .wrapper { padding: 100px 40px; } }
   </style>
 
@@ -148,6 +160,15 @@ src="https://www.facebook.com/tr?id=1650230939558200&ev=PageView&noscript=1"
         </a>
       </div>
 
+      <div class="reveal section-header" style="margin-top: 90px; margin-bottom: 30px;">
+        <h2 class="section-en">Access</h2>
+        <span class="section-ja">アクセス</span>
+      </div>
+
+　　　　<div class="reveal map-container" style="transition-delay: 0.3s;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.5261901711674!2d136.8965849!3d35.168435599999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600377004c3d5a03%3A0x21d2c985b79b3695!2z44Od44O844OI44Os44O844OI!5e0!3m2!1sja!2sjp!4v1777199529241!5m2!1sja!2sjp"
+         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
       <footer class="footer reveal">
         <div>愛知県名古屋市中区錦1-20-25 広小路YMDビル 1F</div>
         <div>18:00 - 00:00 | Closed on Sunday | 052-253-6762</div>
