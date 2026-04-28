@@ -33,7 +33,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .fixed-background { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: #000; }
     .fixed-background img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.4); }
     .hero { position: relative; width: 100%; height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 10; }
-    .main-logo { width: 38%; max-width: 170px; opacity: 0; transform: translateY(15px); animation: fvEntranceSimple 2.2s var(--luxury-ease) 0.5s forwards; }
+    /* ロゴとテキストをまとめるセット */
+.logo-set {
+  width: 40%; 
+  max-width: 180px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fvEntranceSimple 2.2s var(--luxury-ease) 0.5s forwards;
+}
+
+.main-logo {
+  width: 38%;
+  min-width: 170px;
+  max-width: 170px;
+  height: auto; /* SVGの比率を保つために追加 */
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fvEntranceSimple 2.2s var(--luxury-ease) 0.5s forwards;
+}
+
+/* SVG内のロゴの色をベージュに指定 */
+.main-logo path {
+  fill: var(--accent-color);
+}
     .hero-text { font-size: 10px; font-weight: 300; letter-spacing: 0.5em; color: var(--accent-color); text-transform: uppercase; margin-top: 15px; opacity: 0; transform: translateY(15px); animation: fvEntranceSimple 2.2s var(--luxury-ease) 0.5s forwards; }
     .scroll-guide { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 12px; opacity: 0; text-decoration: none; cursor: pointer; animation: fvEntrance 2.2s var(--luxury-ease) 0.5s forwards; }
     @keyframes fvEntrance { to { opacity: 1; transform: translate(-50%, 0); } }
@@ -105,7 +130,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <div class="hero">
-    <img src="img/logo.svg" alt="logo" class="main-logo" width="170" height="auto" />
+    <svg id="_レイヤー_1" data-name="レイヤー 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 915.94 612.19" class="main-logo">
+    <g id="Logo2">
+      <path d="M103.15,504.4c0,26.32-20.71,43.35-54.57,43.35-6,0-13.35-.58-17.8-1.16v59.22H0v-140.88h48.57c36.38,0,54.57,14.71,54.57,39.48ZM30.77,536.04l-.15-4.7c8,6.14,24.42,11.32,34.24,11.32,14,0,20.5-9.5,20.5-23.05,0-12.77-4.81-28.7-15.05-39.26-9.49-9.78-26.25-12.76-39.54-9.74h0v65.43"/>
+      <path d="M379.95,576.57s0,.01,0,.02v35.6h-1.55l-62.51-66.96c-2.9-2.9-5.03-3.68-8.9-3.68h-6.17s-.02.01-.02.02v64.2s-.01.02-.02.02h-30.72s-.02-.01-.02-.02v-140.83s.01-.02.02-.02h44.29c40.06,0,60.19,11.42,60.19,35.03,0,18.57-15.08,29.21-34.02,35.21-.02,0-.02.03-.01.04l39.44,41.38ZM357.53,512.4c0-12.54-5.73-21.32-19.12-32.5-10.43-8.71-24.3-12.16-37.58-9.28h0s-.02.01-.02.02v50.39s0,2.7,0,2.7c.28.12,21.01,8.94,30.83,8.94,8.28,0,25.88-.15,25.88-20.28Z"/>
+      <path d="M492.57,486.01h-.39c-15.48-12.97-24.58-17.61-36.19-17.61h-3.1v137.4h-30.77v-137.4h-2.9c-11.61,0-20.9,4.64-36.38,17.61h-.39l.89-21.09h108.33l.89,21.09Z"/>
+      <path d="M646.98,560.33c-8.32,22.25-9.29,34.25-8.13,45.48h-18.77c10.65-19.35,17.03-33.48,29.61-62.12l35.61-82.83h.77l62.51,144.95h-33.48l-19.54-45.48h-48.57ZM648.33,556.84h37.36c4.02,0,6.74-4.12,5.15-7.81l-14.52-33.79c-1.94-4.52-8.36-4.52-10.3,0l-12.85,29.99c-1.74,4.06-3.48,7.94-4.84,11.61Z"/>
+      <path d="M760.36,464.92h30.77v140.88h-30.77v-140.88Z"/>
+      <path d="M111.6,537.33c0-40.83,30.96-74.31,71.8-74.31s69.47,30.58,69.47,71.02-31.16,74.12-72.18,74.12-69.09-30.77-69.09-70.83ZM235.07,553.81c0-37.82-31.93-85.46-65.18-85.46-21.95,0-37.41,17.55-37.41,46.8,0,38.24,32.26,85.67,65.01,85.67,21.95,0,37.58-17.76,37.58-47.01Z"/>
+      <path d="M617.17,576.5v32.92h-1.55l-62.51-64.27c-2.9-2.9-5.03-3.68-8.9-3.68h-6.19v64.25h-30.77v-140.88h44.32c40.06,0,60.19,11.42,60.19,35.03,0,18.58-15.1,29.22-34.06,35.22l39.48,41.41ZM594.74,512.31c0-10.93-4.36-19.01-14.34-28.31-11.03-10.27-27.61-16.67-42.35-13.49h-.03v53.12s20.95,8.94,30.84,8.94c8.28,0,25.88-.15,25.88-20.28Z"/>
+      <path d="M915.94,485.94h-.39c-15.48-12.97-24.58-17.61-36.19-17.61h-3.1v137.4h-30.77v-137.4h-2.9c-11.61,0-20.9,4.64-36.38,17.61h-.39l.89-21.09h108.33l.89,21.09Z"/>
+      <path d="M349.85,190.69c-34.12-33.11,2.78-82.97,44.4-110.87,26.12-17.51,57.83-24.99,88.85-19.84,100.3,16.65,124.49,147.18-26.61,158.95h0c-48.86,119.01,66.85,96.36-37.87,99.18-.18,0-.34-.13-.37-.31-5.93-51.82,79.96-161.88,2.34-187.25-1-.33-.98-1.75.03-2.04,16.26-4.65,56.91-24.31,56.37-1.03-.07,3.1-1.06,6.09-2.65,8.75-28.85,48.35,14.64,83.34,46.22,55.22,8.11-7.22,13.46-17.05,15.53-27.71,15.91-81.96-65.57-132.56-140.88-74.4-16.59,12.81-42.33,36.31-44.42,100.97-.02.48-.59.72-.94.39Z"/>
+      <path d="M450.26,376.54c-103.81,0-188.27-84.46-188.27-188.27S346.45,0,450.26,0s188.27,84.46,188.27,188.27-84.46,188.27-188.27,188.27ZM450.26,3.95c-101.63,0-184.32,82.69-184.32,184.32s82.69,184.32,184.32,184.32,184.32-82.68,184.32-184.32S551.89,3.95,450.26,3.95Z"/>
+      <path d="M450.26,364.1c-96.95,0-175.83-78.88-175.83-175.83S353.31,12.44,450.26,12.44s175.83,78.88,175.83,175.83-78.88,175.83-175.83,175.83ZM450.26,16.4c-94.77,0-171.88,77.1-171.88,171.88s77.1,171.88,171.88,171.88,171.88-77.1,171.88-171.88S545.03,16.4,450.26,16.4Z"/>
+    </g>
+  </svg>
     <div class="hero-text">Reservation Site</div>
     <a href="#reservation-start" class="scroll-guide">
       <span>SCROLL</span>
